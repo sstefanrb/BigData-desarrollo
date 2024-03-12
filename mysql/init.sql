@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS pbd1;
 USE pbd1;
 
 -- Creación de la tabla de anuncios (ads)
+
 CREATE TABLE ads (
     id INT AUTO_INCREMENT PRIMARY KEY,
     external_id VARCHAR(255) NOT NULL,

@@ -80,6 +80,20 @@ header {
     padding: 10px 0;
 }
 
+.side-menu .submenu > .dropdown {
+    display: none;
+    list-style-type: none;
+    padding-left: 20px; /* Ajustar según sea necesario */
+}
+
+.side-menu .submenu:hover > .dropdown {
+    display: block;
+}
+
+.side-menu li {
+    position: relative;
+}
+
 /* Estilos del contenido principal */
 main {
     margin-left: 200px;

@@ -15,33 +15,37 @@
     --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Usado en la página de inicio de sesión */
 }
 
-body, html {
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
+
+body {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: var(--background-color);
+}
+
+/* Estilos comunes del header */
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #7c7c7c;
-    color: #fff;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
 }
+
 .logo {
-    height: 50px;
+    height: 100px;
+    width: 110px;
 }
-nav ul {
-    list-style: none;
-    display: flex;
+
+.title-container h1 {
+    font-size: 24px;
+    text-align: center;
 }
-nav ul li {
-    margin: 0 15px;
-}
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
+
 .login-register-container a {
     text-decoration: none;
     color: var(--font-color);
@@ -56,18 +60,42 @@ nav ul li a {
     color: var(--button-hover-color);
 }
 
-main {
-    text-align: center;
-    padding: 100px 0;
-}
-footer {
-    background-color: #000;
-    color: #fff;
-    text-align: center;
+/* Estilos comunes de la barra lateral */
+.side-menu {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: var(--menu-background-color);
     padding: 20px;
+}
+
+.side-menu ul {
+    list-style-type: none;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: var(--font-color);
+    display: block;
+    padding: 10px 0;
+}
+
+/* Estilos del contenido principal */
+main {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+/* Estilos del footer */
+footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    background-color: var(--footer-background-color);
+    border-top: 1px solid var(--border-color);
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Estilos específicos para la página de inicio de sesión */
@@ -145,18 +173,4 @@ footer {
 
 .options a:hover {
     text-decoration: underline;
-}
-
-main {
-    margin-left: 200px; 
-    padding: 20px;
-}
-
-.visualization {
-    min-height: 100vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px; 
 }

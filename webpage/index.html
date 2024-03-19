@@ -8,12 +8,18 @@
 </head>
 <body>
     <header>
-        <div class="logo-container" onclick="toggleMenu()">
+        <div class="logo-container">
             <img src="logo.png" alt="Logo Empresa" class="logo">
         </div>
         <div class="title-container">
-                <h1>MOTORMIND TECH</h1>
+            <h1>MOTORMIND TECH</h1>
         </div>
+        <div class="login-register-container">
+            <a href="login.html" class="login">Log in</a>
+            <a href="register.html" class="register">Register</a>
+        </div>
+    </header>
+    <aside>
         <nav class="side-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,30 +29,12 @@
                 <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
             </ul>
         </nav>
-        <div class="login-register-container">
-            <a href="login.html" class="login">Log in</a>
-            <a href="register.html" class="register">Register</a>
-        </div>
-    </header>
+    </aside>
     <main>
-        <!-- Contenido principal aquí -->
+        <p>Hola</p>
     </main>
     <footer>
         <p>Stefan Raos Bermúdez / Pablo Gonzalez Castro / Pablo Bailador Pollo ///// +34 631 342 682  /////  sstefanrb@gmail.com</p>
     </footer>
-    <script>
-        function toggleMenu() {
-            document.querySelector('.side-menu').classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(event) {
-        var isClickInsideMenu = document.querySelector('.side-menu').contains(event.target);
-        var isClickLogo = document.querySelector('.logo-container').contains(event.target);
-
-        if (!isClickInsideMenu && !isClickLogo) {
-            document.querySelector('.side-menu').classList.remove('active');
-        }
-    });
-    </script>
 </body>
 </html>

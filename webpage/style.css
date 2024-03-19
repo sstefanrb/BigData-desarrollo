@@ -46,19 +46,41 @@ header {
     text-align: center;
 }
 
-.login-register-container a {
-    text-decoration: none;
-    color: var(--font-color);
-    margin-left: 20px;
-    border: 1px solid var(--button-color);
-    padding: 5px 10px;
-    border-radius: 5px;
+.imagen-usuario{
+    width: 70px; /* Ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin: 25px;
 }
 
-.login-register-container a:hover {
-    background-color: var(--button-hover-background);
-    color: var(--button-hover-color);
-}
+.login-register-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .login-register-container:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
 
 /* Estilos comunes de la barra lateral */
 .side-menu {
@@ -67,6 +89,7 @@ header {
     height: 100%;
     background-color: var(--menu-background-color);
     padding: 20px;
+    overflow-x: hidden;
 }
 
 .side-menu ul {
@@ -197,6 +220,7 @@ footer {
 }
 
 .logo-empresa-colaboradora {
+    position: fixed;
     max-width: 200px; /* Limita el tamaño del logo */
     margin-bottom: 20px; /* Espacio entre el logo y el texto */
 }
@@ -210,5 +234,20 @@ footer {
 .empresa-colaboradora p{
     font-size: 1em; /* Tamaño del texto descriptivo */
     line-height: 1.6;
+    animation-duration: 3s;
+    animation-name: slidein;
+    padding-left: 100px ;
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 

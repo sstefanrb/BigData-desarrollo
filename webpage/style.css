@@ -188,3 +188,27 @@ footer {
 .options a:hover {
     text-decoration: underline;
 }
+
+/*Empresa colaboradora*/
+
+.empresa-colaboradora {
+    margin-bottom: 40px; /* Espacio entre secciones de empresas colaboradoras */
+    display: flex;
+}
+
+.logo-empresa-colaboradora {
+    max-width: 200px; /* Limita el tamaño del logo */
+    margin-bottom: 20px; /* Espacio entre el logo y el texto */
+}
+
+/* Estilos para la sección de información de la empresa */
+.empresa-colaboradora h2 {
+    margin: 0 0 10px 0; /* Espacio arriba y abajo del nombre de la empresa */
+    font-size: 1.5em; /* Tamaño del título de la empresa */
+}
+
+.empresa-colaboradora p{
+    font-size: 1em; /* Tamaño del texto descriptivo */
+    line-height: 1.6;
+}
+

@@ -6,8 +6,8 @@
     --button-color: #000;
     --button-hover-background: #000;
     --button-hover-color: #fff;
-    --menu-background-color: #e3e3e3;
-    --footer-background-color: #f5f5f5;
+    --menu-background-color: rgb(249,249,249);
+    --footer-background-color: rgb(249,249,249);
     --primary-color: #5b8bf7; /* Usado en la página de inicio de sesión */
     --background-form: #ffffff; /* Usado en la página de inicio de sesión */
     --text-color: #333; /* Usado en la página de inicio de sesión */
@@ -101,6 +101,11 @@ header {
     color: var(--font-color);
     display: block;
     padding: 10px 0;
+}
+
+.side-menu ul li a:hover{
+    color:#5b8bf7;
+    text-decoration: underline;    
 }
 
 .side-menu .submenu > .dropdown {
@@ -217,6 +222,24 @@ footer {
 .empresa-colaboradora {
     margin-bottom: 40px; /* Espacio entre secciones de empresas colaboradoras */
     display: flex;
+    width: 600px;
+    height: 430px;
+    margin-left: 400px;
+}
+
+.empresa-colaboradora img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: 8;
+    transition: .5s ease;
+}
+
+.empresa-colaboradora img:hover{
+    cursor:pointer;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%)
 }
 
 .logo-empresa-colaboradora {

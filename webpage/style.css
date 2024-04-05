@@ -1,19 +1,18 @@
 /* Variables globales */
 :root {
-    --background-color: #f5f5f5;
+    --background-color: rgb(255,255,255);
     --border-color: #ccc;
     --font-color: #000;
     --button-color: #000;
     --button-hover-background: #000;
     --button-hover-color: #fff;
-    --menu-background-color: rgb(249,249,249);
+    --menu-background-color: rgb(230,230,230);
     --footer-background-color: rgb(249,249,249);
     --primary-color: #5b8bf7; /* Usado en la página de inicio de sesión */
     --background-form: #ffffff; /* Usado en la página de inicio de sesión */
     --text-color: #333; /* Usado en la página de inicio de sesión */
     --border-radius: 8px; /* Usado en la página de inicio de sesión */
     --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Usado en la página de inicio de sesión */
-}
 
 * {
     margin: 0;
@@ -31,25 +30,42 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: var(--background-color);
+    padding:5px;
+    background-color: var(--menu-background-color);
     border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
     height: 100px;
     width: 110px;
+    padding-right:5px;
+    margin-right: 5px;
 }
 
 .title-container h1 {
     font-size: 24px;
-    text-align: center;
+    font-family: 'Poppins';
 }
 
-.imagen-usuario{
-    width: 70px; /* Ancho de la imagen */
-    height: auto; /* Altura automática para mantener la proporción */
-    margin: 25px;
+.loginregisterbutton{
+    background-color: #3a3b39;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right:20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.loginregisterbutton:hover{
+    background-color: rgb(172, 172, 172);
+    color: #000;
 }
 
 .login-register-container {
@@ -64,6 +80,11 @@ header {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+  }
+
+  .dropdown-content a:hover{
+    color:#5b8bf7;
+    font-weight: bold;
   }
   
   .dropdown-content a {
@@ -80,51 +101,49 @@ header {
   .dropdown-content a:hover {
     background-color: #f1f1f1;
   }
-  
 
-/* Estilos comunes de la barra lateral */
-.side-menu {
-    position: fixed;
-    width: 200px;
-    height: 100%;
+  .login-image {
+    width: 100px;
+    height: 1px;
+    margin-right: 20px; 
+}
+  
+  .header-menu {
     background-color: var(--menu-background-color);
     padding: 20px;
     overflow-x: hidden;
+    position: relative;
+    z-index: 100;
 }
 
-.side-menu ul {
+.header-menu ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.side-menu ul li a {
-    text-decoration: none;
-    color: var(--font-color);
-    display: block;
-    padding: 10px 0;
-}
-
-.side-menu ul li a:hover{
-    color:#5b8bf7;
-    text-decoration: underline;    
-}
-
-.side-menu .submenu > .dropdown {
-    display: none;
-    list-style-type: none;
-    padding-left: 20px; /* Ajustar según sea necesario */
-}
-
-.side-menu .submenu:hover > .dropdown {
-    display: block;
-}
-
-.side-menu li {
+.header-menu ul li {
+    display: inline-block; /* Cambiamos de block a inline-block */
     position: relative;
 }
 
+.header-menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Poppins';
+    padding: 10px 15px; 
+    transition: font-size 0.2s ease;
+}
+
+.header-menu ul li a:hover {
+    background-color: lightgrey;
+    border-radius: 15px;
+    transform: 20px; 
+    font-size: 18px; 
+}   
+
 /* Estilos del contenido principal */
 main {
-    margin-left: 200px;
     padding: 20px;
 }
 
@@ -274,3 +293,4 @@ footer {
     }
   }
 
+}

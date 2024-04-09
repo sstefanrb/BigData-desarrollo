@@ -159,6 +159,20 @@ footer {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* Secciones */
+section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    color: #20232a;
+    margin-bottom: 15px;
+}
+
 /* Estilos específicos para la página de inicio de sesión */
 
 .login-page {
@@ -236,61 +250,78 @@ footer {
     text-decoration: underline;
 }
 
-/*Empresa colaboradora*/
-
 .empresa-colaboradora {
-    margin-bottom: 40px; /* Espacio entre secciones de empresas colaboradoras */
+    margin-bottom: 40px; 
     display: flex;
     width: 600px;
     height: 430px;
-    margin-left: 400px;
+    margin-left:20px;
+    margin-right:20px;
 }
 
 .empresa-colaboradora img{
-    width: 0px;
+    width: 400px;
+    height: 600px;
     flex-grow: 1;
     object-fit: cover;
-    opacity: 8;
+    opacity: 0.8;
     transition: .5s ease;
 }
 
 .empresa-colaboradora img:hover{
     cursor:pointer;
-    width: 300px;
+    width: 110%;
     opacity: 1;
     filter: contrast(120%)
 }
 
-.logo-empresa-colaboradora {
-    position: fixed;
-    max-width: 200px; /* Limita el tamaño del logo */
-    margin-bottom: 20px; /* Espacio entre el logo y el texto */
-}
-
-/* Estilos para la sección de información de la empresa */
-.empresa-colaboradora h2 {
-    margin: 0 0 10px 0; /* Espacio arriba y abajo del nombre de la empresa */
-    font-size: 1.5em; /* Tamaño del título de la empresa */
-}
-
-.empresa-colaboradora p{
-    font-size: 1em; /* Tamaño del texto descriptivo */
-    line-height: 1.6;
-    animation-duration: 3s;
-    animation-name: slidein;
-    padding-left: 100px ;
-}
-
 @keyframes slidein {
     from {
-      margin-left: 100%;
-      width: 300%;
+        margin-left: 100%;
+        width: 300%;
+        }
+    
+        to {
+        margin-left: 0%;
+        width: 100%;
+        }
     }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
-  }
 
-}
+    }
+
+    /* Pagina EDA */
+
+    .images {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .images img {
+        width: auto;
+        height: 300px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: .5s ease;
+    }
+
+    .images img:hover {
+        cursor: pointer;
+        opacity: 1; 
+        filter: contrast(120%);
+        transform: scale(1.05);
+    }
+
+    #images-visualizacion, #conclusion {
+        margin-bottom: 40px; /* Asegura que haya espacio entre secciones */
+    }
+
+    #conclusion {
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 40px; /* Asegura que haya suficiente espacio antes de la sección de conclusión */
+    }
+
+  
+

@@ -290,38 +290,45 @@ section h2 {
     }
 
     /* Pagina EDA */
+ 
+    #images-visualizacion h2{
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
     .images {
         display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Esto crea un espacio entre las imágenes y los iframes */
         justify-content: center;
-        margin-bottom: 40px;
     }
-
-    .images img {
-        width: auto;
-        height: 300px;
-        flex-grow: 1;
-        object-fit: cover;
-        opacity: 0.8;
-        transition: .5s ease;
+    
+    .image-container {
+        flex: 1;
+        min-width: 300px;
+        max-width: 800px; 
+        position: relative; 
     }
-
-    .images img:hover {
-        cursor: pointer;
-        opacity: 1; 
-        filter: contrast(120%);
-        transform: scale(1.05);
+    
+    .image-container iframe,
+    .image-container img {
+        width: 100%; 
+        height: auto;
+        border: none; 
+        display: block; 
     }
-
-    #images-visualizacion, #conclusion {
-        margin-bottom: 40px; /* Asegura que haya espacio entre secciones */
+    
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        padding: 10px;
     }
-
-    #conclusion {
-        padding: 30px;
-        border-radius: 10px;
-        margin-top: 40px; /* Asegura que haya suficiente espacio antes de la sección de conclusión */
-    }
+    
 
   
 

@@ -305,15 +305,15 @@ section h2 {
     
     .image-container {
         flex: 1;
-        min-width: 300px;
-        max-width: 800px; 
+        width: 500px;
         position: relative; 
+        margin-left: 100px;
     }
     
     .image-container iframe,
     .image-container img {
-        width: 100%; 
-        height: auto;
+        width: 500px; 
+        height: 500px;
         border: none; 
         display: block; 
     }

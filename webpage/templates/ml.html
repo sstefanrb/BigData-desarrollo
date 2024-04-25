@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotorMind Tech - Machine Learning</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+        </div>
+        <div class="title-container">
+            <h1>MotorMind</h1>
+        </div>
+        <aside>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="eda.html">EDA</a></li>
+                    <li><a href="ml.html">ML</a></li>
+                    <li><a href="visualizaciones.html">Visualizaciones</a></li>
+                    <li><a href="empresascolaboradoras.html">Empresas Colaboradoras</a></li>
+                    <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="login-register-container">
+            <button class="loginregisterbutton">Log In</button>
+            <div class="dropdown-content">
+              <a href="login.html">Iniciar Sesión</a>
+              <a href="register.html">Registrarse</a>
+            </div>
+          </div>
+          
+        </header>
+    <h1>Predicción de Precios de Coches</h1>
+    <form id="predictionForm">
+        <div>
+            <label for="make">Marca:</label>
+            <select id="make" name="make" required></select>
+        </div>
+        <div>
+            <label for="model">Modelo:</label>
+            <select id="model" name="model" required></select>
+        </div>
+        <div>
+            <label for="km">Kilometraje:</label>
+            <input type="number" id="km" name="km" required>
+        </div>
+        <div>
+            <label for="fueltype">Tipo de Combustible:</label>
+            <select id="fueltype" name="fueltype" required></select>
+        </div>
+        <div>
+            <label for="transmission">Transmisión:</label>
+            <select id="transmission" name="transmission" required></select>
+        </div>
+        <div>
+            <label for="horse_power">Potencia (HP):</label>
+            <input type="number" id="horse_power" name="horse_power" required>
+        </div>
+        <div>
+            <label for="car_age">Edad del Coche:</label>
+            <input type="number" id="car_age" name="car_age" required>
+        </div>
+        <button type="button" onclick="submitPredictionForm()">Obtener Precio</button>
+    </form>
+    <p>Precio estimado: <span id="result"></span></p>
+    <script>
+       const BASE_URL = window.location.origin;
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadDropdownOptions('make');
+    loadDropdownOptions('fueltype');
+    loadDropdownOptions('transmission');
+});
+
+document.getElementById('make').addEventListener('change', function() {
+    loadDropdownOptions('model', this.value);
+});
+
+function loadDropdownOptions(field, make = '') {
+    let url = make && field === 'model' ? `${BASE_URL}/get_unique_values/${field}?make=${make}` : `${BASE_URL}/get_unique_values/${field}`;
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        let select = document.getElementById(field);
+        select.innerHTML = '<option value="">Seleccione uno...</option>'; // Añade un valor por defecto
+        data.forEach(option => {
+            let optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            select.appendChild(optionElement);
+        });
+    })
+    .catch(error => console.error('Error loading options for ' + field + ':', error));
+}
+
+function submitPredictionForm() {
+    let form = document.getElementById('predictionForm');
+    let formData = new FormData(form);
+    let jsonData = {};
+    formData.forEach((value, key) => { jsonData[key] = value; });
+    fetch(`${BASE_URL}/predict`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jsonData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('result').textContent = '€' + data.prediction.toFixed(2);
+    })
+    .catch(error => console.error('Error:', error));
+}
+    </script>
+</body>
+</html>

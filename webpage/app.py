@@ -5,7 +5,8 @@ import pickle
 app = Flask(__name__)
 
 # Cargar el modelo entrenado y los datos procesados
-modelo = pickle.load(open('modelo.pkl', 'rb'))
+with open('modelo.pkl', 'rb') as file:
+    modelo = pickle.load(file)
 datos_procesados = pd.read_csv('datos_procesados.csv')
 
 @app.route('/')
@@ -47,16 +48,19 @@ def get_unique_values(field):
     
     return jsonify(unique_values)
 
-# Endpoint para realizar predicciones
 @app.route('/predict', methods=['POST'])
 def predict():
-    content = request.json
-    # Aquí deberías procesar 'content' para que coincida con el formato esperado por tu modelo
-    # y luego hacer una predicción con el modelo.
-    # Por ejemplo, si tu modelo espera un DataFrame con ciertas columnas:
-    input_df = pd.DataFrame([content])
-    prediction = modelo.predict(input_df)[0]  # Asumiendo que el modelo retorna un array
-    return jsonify({"prediction": prediction})
+    # Obtener datos de entrada de la solicitud POST
+    data = request.get_json()
+    
+    # Convertir los datos a DataFrame, asumiendo que 'data' es un diccionario adecuado para tu modelo
+    X_nuevo = pd.DataFrame(data, index=[0])
+    
+    # Hacer predicciones
+    y_pred = modelo.predict(X_nuevo)
+    
+    # Devolver la predicción como respuesta JSON
+    return jsonify({'prediction': y_pred.tolist()})
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

@@ -35,8 +35,11 @@
           </div>
           
         </header>
-    <h1>Predicción de Precios de Coches</h1>
-    <form id="predictionForm">
+        <div class="content-wrapper">
+            <h1>Predicción de Precios de Coches</h1>
+            <div class="main-content">
+                <form id="predictionForm">
+
         <div>
             <label for="make">Marca:</label>
             <select id="make" name="make" required></select>
@@ -65,9 +68,11 @@
             <label for="car_age">Edad del Coche:</label>
             <input type="number" id="car_age" name="car_age" required>
         </div>
-        <button type="button" onclick="submitPredictionForm()">Obtener Precio</button>
+        <button type="button" onclick="submitPredictionForm()" class="price-prediction-button">Obtener Precio</button>
     </form>
-    <p>Precio estimado: <span id="result"></span></p>
+    <div class="price-display-container">
+        <p class="price-display">Precio estimado: <span id="result"></span></p>
+    </div>
     <script>
        const BASE_URL = window.location.origin;
 
@@ -102,18 +107,36 @@ function submitPredictionForm() {
     let form = document.getElementById('predictionForm');
     let formData = new FormData(form);
     let jsonData = {};
-    formData.forEach((value, key) => { jsonData[key] = value; });
+    for (let [key, value] of formData.entries()) {
+        jsonData[key] = value;
+    }
+    
     fetch(`${BASE_URL}/predict`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+        },
         body: JSON.stringify(jsonData)
     })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('result').textContent = '€' + data.prediction.toFixed(2);
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('La respuesta de la red no fue ok.');
+        }
+        return response.json();
     })
-    .catch(error => console.error('Error:', error));
+    .then(data => {
+        if(data.prediction !== undefined){
+            document.getElementById('result').textContent = '₺' + parseFloat(data.prediction).toFixed(2);
+        } else {
+            throw new Error('El objeto de respuesta no contiene la predicción.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('result').textContent = 'Error: ' + error.message;
+    });
 }
+
     </script>
 </body>
 </html>

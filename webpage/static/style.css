@@ -8,11 +8,11 @@
     --button-hover-color: #fff;
     --menu-background-color: rgb(230,230,230);
     --footer-background-color: rgb(249,249,249);
-    --primary-color: #5b8bf7; /* Usado en la página de inicio de sesión */
-    --background-form: #ffffff; /* Usado en la página de inicio de sesión */
-    --text-color: #333; /* Usado en la página de inicio de sesión */
-    --border-radius: 8px; /* Usado en la página de inicio de sesión */
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Usado en la página de inicio de sesión */
+    --primary-color: #5b8bf7; 
+    --background-form: #ffffff; 
+    --text-color: #333; 
+    --border-radius: 8px; 
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 
 * {
     margin: 0;
@@ -129,7 +129,7 @@ header {
 }
 
 .header-menu ul li {
-    display: inline-block; /* Cambiamos de block a inline-block */
+    display: inline-block; 
     position: relative;
 }
 
@@ -148,12 +148,10 @@ header {
     font-size: 18px; 
 }   
 
-/* Estilos del contenido principal */
 main {
     padding: 120px;
 }
 
-/* Estilos del footer */
 footer {
     position: fixed;
     bottom: 0;
@@ -165,7 +163,6 @@ footer {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-/* Secciones */
 section {
     background-color: #fff;
     margin: 20px 0;
@@ -179,7 +176,7 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* Estilos específicos para la página de inicio de sesión */
+/* Página Inicio Sesión y Registro*/
 
 .login-page {
     display: flex;
@@ -256,6 +253,8 @@ section h2 {
     text-decoration: underline;
 }
 
+/* Página de Empresas Colaboradoras */
+
 .empresa-colaboradora {
     margin-bottom: 40px; 
     display: flex;
@@ -305,7 +304,7 @@ section h2 {
     .images {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px; /* Esto crea un espacio entre las imágenes y los iframes */
+        gap: 20px; 
         justify-content: center;
     }
     
@@ -344,15 +343,15 @@ section h2 {
         width: 100%;
     }
 
-    /* Para una mejor visualización en dispositivos de diferentes tamaños, considera hacer los iframes responsivos */
+
 @media screen and (max-width: 1024px) {
     .image-container {
-        width: 90%; /* Reduce el ancho en pantallas más pequeñas */
+        width: 90%; 
         margin: 10px auto;
     }
     
     .image-container iframe {
-        height: auto; /* Permite que el alto sea dinámico */
+        height: auto; 
     }
 }   
 
@@ -371,10 +370,9 @@ section h2 {
     align-items: flex-start;
 }
 
-   /* Center the form on the page */
 #predictionForm {
-    width: 600px; /* Set a max-width for the form */
-    margin: 50px auto; /* Center form with automatic margins */
+    width: 600px;
+    margin: 50px auto; 
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -382,19 +380,17 @@ section h2 {
     margin-top: 100px;
 }
 
-/* Style for form elements */
 #predictionForm div {
-    margin-bottom: 15px; /* Spacing between form elements */
+    margin-bottom: 15px; 
 }
 
 #predictionForm label {
     margin-bottom: 5px;
-    display: block; /* Make label take the full width */
+    display: block; 
     color: var(--text-color);
     font-size: 16px;
 }
 
-/* Improve spacing and style for selects and inputs */
 #predictionForm select,
 #predictionForm input[type="number"] {
     width: 100%;
@@ -405,36 +401,34 @@ section h2 {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Make the submit button more prominent and aligned with form */
 .price-prediction-button {
-    width: 100%; /* Make button take full width of the form */
+    width: 100%; 
     padding: 12px;
     font-weight: bold;
 }
 
 .price-display {
-    font-size: 20px; /* Adjust the font size as desired */
-    text-align: center; /* Center the text on the page */
-    margin-top: 300px; /* Add some space above the price display */
-    color: var(--text-color); /* Use the predefined text color */
+    font-size: 20px; 
+    text-align: center; 
+    margin-top: 300px;
+    color: var(--text-color); 
 }
 
 #result {
-    display: block; /* Ensures the result is on its own line */
-    margin: 20px auto; /* Centers the result horizontally */
+    display: block; 
+    margin: 20px auto;
     padding: 10px;
-    font-size: 24px; /* Increases the font size for visibility */
-    color: var(--primary-color); /* Sets the color to the primary theme color */
-    font-weight: bold; /* Makes the text bold */
-    border-radius: var(--border-radius); /* Adds rounded corners */
-    border: 2px dashed var(--border-color); /* Makes the border dashed for an original look */
-    max-width: 300px; /* Maximum width for the result container */
-    text-align: center; /* Ensures text is centered within the block */
-    background-color: rgba(0, 150, 0, 0.1); /* A slight green background for emphasis */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 24px; 
+    color: var(--primary-color); 
+    font-weight: bold; 
+    border-radius: var(--border-radius); 
+    border: 2px dashed var(--border-color); 
+    max-width: 300px; 
+    text-align: center; 
+    background-color: rgba(0, 150, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
 }
 
-/* Animation for the result appearance */
 @keyframes pop-in {
     0% {
         transform: scale(0);
@@ -450,7 +444,7 @@ section h2 {
 }
 
 #result {
-    animation: pop-in 0.7s ease forwards; /* Attach the animation */
+    animation: pop-in 0.7s ease forwards; 
 }
 
 

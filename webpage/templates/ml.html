@@ -126,7 +126,10 @@ function submitPredictionForm() {
     })
     .then(data => {
         if(data.prediction !== undefined){
-            document.getElementById('result').textContent = '₺' + parseFloat(data.prediction).toFixed(2);
+            const predictionInLira = parseFloat(data.prediction);
+            const exchangeRate = 0.031; // Tasa de cambio de lira a euro.
+            const predictionInEuro = predictionInLira * exchangeRate;
+            document.getElementById('result').textContent = `₺${predictionInLira.toFixed(2)} = €${predictionInEuro.toFixed(2)}`;
         } else {
             throw new Error('El objeto de respuesta no contiene la predicción.');
         }

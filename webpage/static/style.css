@@ -379,6 +379,7 @@ section h2 {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     background: var(--background-form);
+    margin-top: 100px;
 }
 
 /* Style for form elements */
@@ -414,7 +415,7 @@ section h2 {
 .price-display {
     font-size: 20px; /* Adjust the font size as desired */
     text-align: center; /* Center the text on the page */
-    margin-top: 40px; /* Add some space above the price display */
+    margin-top: 300px; /* Add some space above the price display */
     color: var(--text-color); /* Use the predefined text color */
 }
 

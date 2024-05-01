@@ -70,7 +70,7 @@
         </div>
         <button type="button" onclick="submitPredictionForm()" class="price-prediction-button">Obtener Precio</button>
     </form>
-    <div class="price-display-container">
+    <div class="price-display-container">   
         <p class="price-display">Precio estimado: <span id="result"></span></p>
     </div>
     <script>
@@ -129,6 +129,7 @@ function submitPredictionForm() {
             const predictionInLira = parseFloat(data.prediction);
             const exchangeRate = 0.031; // Tasa de cambio de lira a euro.
             const predictionInEuro = predictionInLira * exchangeRate;
+
             document.getElementById('result').textContent = `₺${predictionInLira.toFixed(2)} = €${predictionInEuro.toFixed(2)}`;
         } else {
             throw new Error('El objeto de respuesta no contiene la predicción.');

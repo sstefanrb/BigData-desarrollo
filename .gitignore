@@ -4,5 +4,6 @@ webpage/static/visualizacioneseda/car_year_distribution.html
 webpage/static/visualizacioneseda/distribucion_gasolina.html
 webpage/static/visualizacioneseda/make_distribution.html
 webpage/static/visualizacioneseda/km_distribution.html
+webpage/static/visualizacioneseda/correlation_heatmap.html
 webpage/modelo.pkl
 webpage/datos_procesados.csv

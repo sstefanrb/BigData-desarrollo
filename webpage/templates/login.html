@@ -1,4 +1,4 @@
-       <!-- Pagina Login -->
+       <!-- Pagina Login
 
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,7 @@
 </head>
 <header>
     <div class="logo-container">
-        <a href="index.html">
+        <a href="/">
             <img src="../static/logo.png" alt="Logo Empresa" class="logo">
         </a>
     </div>
@@ -33,11 +33,76 @@
                     <div class="options">
                         <a href="forgot-password.html">¿Olvidaste tu contraseña?</a>
                         <span>|</span>
-                        <a href="register.html">Registrarse</a>
+                        <a href="register">Registrarse</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        /* Estilo adicional */
+        .login-container {
+            margin-top: 150px; /* Ajusta este valor según el espacio deseado */
+        }
+    </style>
+</head>
+<header>
+    <div class="logo-container">
+        <a href="login">
+            <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+        </a>
+    </div>
+</header>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class="subtitle-header">
+                <h2>Log In</h2>
+            </div>
+            <form class="login-form" onsubmit="return login()">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" placeholder="Usuario" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+                <div class="form-group action-group">
+                    <input type="submit" value="Log In">
+                    <div class="options">
+                        <a href="register">Registrarse</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+            var authenticated = users.find(user => user.username === username && user.password === password);
+
+            if (authenticated) {
+                //alert("¡Inicio de sesión exitoso!");
+                window.location.href = "/";
+                return false;
+            } else {
+                alert("Usuario o contraseña incorrectos.");
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>

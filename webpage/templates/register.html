@@ -1,4 +1,4 @@
-       <!-- Pagina Registro -->
+       <!-- Pagina Registro 
 
 
 <!DOCTYPE html>
@@ -11,12 +11,12 @@
 </head>
 <header>
     <div class="logo-container">
-        <a href="index.html">
+        <a href="/">
             <img src="../static/logo.png" alt="Logo Empresa" class="logo">
         </a>
     </div>
     <div class="title-container">
-        <a href="index.html">
+        <a href="/">
             <h1>VAVACAR</h1>
         </a>
     </div>
@@ -45,9 +45,79 @@
                 </div>
             </form>
             <div class="options">
-                <a href="login.html">¿Ya tienes cuenta? Inicia sesión</a>
+                <a href="login">¿Ya tienes cuenta? Inicia sesión</a>
             </div>
         </div>
     </div>
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <style>
+        /* Estilo adicional */
+        .login-container {
+            margin-top: 200px; /* Ajusta este valor según el espacio deseado */
+        }
+    </style>
+</head>
+<header>
+    <div class="logo-container">
+        <a href="register">
+            <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+        </a>
+    </div>
+</header>
+<body>
+    <div class="login-page">
+        <div class="login-container">
+            <div class ="subtitle-header">   
+                <h2>Registrarse</h2>
+            </div>
+            <form class="login-form" onsubmit="return register()">
+                <div class="form-group">
+                    <input type="text" id="username" name="username" placeholder="Usuario" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmar Contraseña" required>
+                </div>
+                <div class="form-group action-group">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+            <div class="options">
+                <a href="login">¿Ya tienes cuenta? Inicia sesión</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function register() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var users = JSON.parse(localStorage.getItem("users")) || [];
+
+            if (password !== confirmPassword) {
+                alert("Las contraseñas no coinciden.");
+                return false;
+            }
+
+            users.push({ username: username, password: password });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("¡Registro exitoso!");
+            return true;
+        }
+    </script>
 </body>
 </html>

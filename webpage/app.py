@@ -28,6 +28,14 @@ def empresascolaboradoras():
 def sobrenosotros():
     return render_template('sobrenosotros.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
 @app.route('/get_unique_values/<field>', methods=['GET'])
 def get_unique_values(field):
     if field not in datos_procesados.columns:

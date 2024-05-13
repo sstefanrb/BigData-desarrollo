@@ -75,7 +75,8 @@ def register():
         confirm_password = request.form['confirm-password']
         
         if password != confirm_password:
-            return "Las contraseñas no coinciden.", 400
+            flash("Las contraseñas no coinciden.")
+            return redirect(url_for('register'))
         
         with open("users.txt", "a") as file:
             file.write(f"{username},{password}\n")

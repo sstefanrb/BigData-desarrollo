@@ -81,7 +81,7 @@
             <div class ="subtitle-header">   
                 <h2>Registrarse</h2>
             </div>
-            <form class="login-form" onsubmit="return register()">
+            <form class="login-form" action="/register" method="post">
                 <div class="form-group">
                     <input type="text" id="username" name="username" placeholder="Usuario" required>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="form-group action-group">
                     <input type="submit" value="Registrarse">
                 </div>
-            </form>
+            </form>            
             <div class="options">
                 <a href="login">¿Ya tienes cuenta? Inicia sesión</a>
             </div>

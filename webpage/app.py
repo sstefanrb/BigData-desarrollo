@@ -28,13 +28,42 @@ def empresascolaboradoras():
 def sobrenosotros():
     return render_template('sobrenosotros.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+    
+        try:
+            with open("users.txt", "r") as file:
+                users = file.readlines()
+                for user in users:
+                    uname, upass = user.strip().split(',')
+                    if uname == username and upass == password:
+                        return render_template('index.html')  
+        except Exception as e:
+            print(e) 
+
+        return "Usuario o contraseña incorrectos.", 401
+
     return render_template('login.html')
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm-password']
+        
+        if password != confirm_password:
+            return "Las contraseñas no coinciden.", 400
+        
+        with open("users.txt", "a") as file:
+            file.write(f"{username},{password}\n")
+        
+        return render_template('index.html')
     return render_template('register.html')
+
 
 @app.route('/get_unique_values/<field>', methods=['GET'])
 def get_unique_values(field):

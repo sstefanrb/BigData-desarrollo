@@ -70,9 +70,33 @@
 </head>
 <header>
     <div class="logo-container">
-        <a href="register">
-            <img src="../static/logo.png" alt="Logo Empresa" class="logo">
-        </a>
+        <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+    </div>
+    <div class="title-container">
+        <h1>MotorMind</h1>
+    </div>
+    <aside>
+        <nav class="header-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="eda">EDA</a></li>
+                <li><a href="ml">ML</a></li>
+                <li><a href="visualizaciones">Visualizaciones</a></li>
+                <li><a href="empresascolaboradoras">Empresas Colaboradoras</a></li>
+                <li><a href="sobrenosotros">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="login-register-container">
+        {% if session.logged_in %}
+            <button onclick="location.href='/logout'" class="loginregisterbutton">Cerrar Sesión</button>
+        {% else %}
+            <button class="loginregisterbutton">Log In</button>
+            <div class="dropdown-content">
+                <a href="login">Iniciar Sesión</a>
+                <a href="register">Registrarse</a>
+            </div>
+        {% endif %}
     </div>
 </header>
 <body>

@@ -1,8 +1,12 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template, redirect, url_for, session, flash, jsonify
+from flask_session import Session
 import pandas as pd
 import pickle
 
 app = Flask(__name__)
+app.secret_key = 'bigdata'  
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
 
 with open('modelo.pkl', 'rb') as file:
     modelo = pickle.load(file)
@@ -18,6 +22,9 @@ def machine_learning():
 
 @app.route('/eda')
 def exploratory_data_analysis():
+    if 'logged_in' not in session or not session['logged_in']:
+        flash("Debes iniciar sesión para acceder a esta página.")
+        return redirect(url_for('login'))
     return render_template('eda.html')
 
 @app.route('/empresascolaboradoras')
@@ -40,13 +47,25 @@ def login():
                 for user in users:
                     uname, upass = user.strip().split(',')
                     if uname == username and upass == password:
-                        return render_template('index.html')  
+                        session['logged_in'] = True
+                        session['username'] = username
+                        return redirect(url_for('exploratory_data_analysis'))
         except Exception as e:
-            print(e) 
+            print(e)
+        flash("Usuario o contraseña incorrectos.")
+        return redirect(url_for('login'))
 
-        return "Usuario o contraseña incorrectos.", 401
-
+    if 'logged_in' in session:
+        return redirect(url_for('index'))
     return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None) 
+    session.pop('username', None) 
+    flash("Has cerrado sesión correctamente.")
+    return redirect(url_for('login'))
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

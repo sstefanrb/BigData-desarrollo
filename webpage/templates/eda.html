@@ -13,7 +13,7 @@
             <img src="../static/logo.png" alt="Logo Empresa" class="logo">
         </div>
         <div class="title-container">
-            <h1>Analisis Exploratorio de Datos</h1>
+            <h1>MotorMind</h1>
         </div>
         <aside>
             <nav class="header-menu">
@@ -28,14 +28,17 @@
             </nav>
         </aside>
         <div class="login-register-container">
-            <button class="loginregisterbutton">Log In</button>
-            <div class="dropdown-content">
-              <a href="login">Iniciar Sesión</a>
-              <a href="register">Registrarse</a>
-            </div>
-          </div>
-          
-        </header>    
+            {% if session.logged_in %}
+                <button onclick="location.href='/logout'" class="loginregisterbutton">Cerrar Sesión</button>
+            {% else %}
+                <button class="loginregisterbutton">Log In</button>
+                <div class="dropdown-content">
+                    <a href="login">Iniciar Sesión</a>
+                    <a href="register">Registrarse</a>
+                </div>
+            {% endif %}
+        </div>
+    </header>    
         <main>
             <section id="introduction">
                 <h2>Introducción al Análisis Exploratorio de Datos (EDA)</h2>

@@ -27,13 +27,16 @@
             </nav>
         </aside>
         <div class="login-register-container">
-            <button class="loginregisterbutton">Log In</button>
-            <div class="dropdown-content">
-              <a href="login">Iniciar Sesión</a>
-              <a href="register">Registrarse</a>
-            </div>
-          </div>
-          
+            {% if session.logged_in %}
+                <button onclick="location.href='/logout'" class="loginregisterbutton">Cerrar Sesión</button>
+            {% else %}
+                <button class="loginregisterbutton">Log In</button>
+                <div class="dropdown-content">
+                    <a href="login">Iniciar Sesión</a>
+                    <a href="register">Registrarse</a>
+                </div>
+            {% endif %}
+        </div>
         </header>
         <div class="content-wrapper">
             <h1>Predicción de Precios de Coches</h1>

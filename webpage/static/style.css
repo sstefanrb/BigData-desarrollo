@@ -13,6 +13,10 @@ header {
     height: 50px;
 }
 
+.logo {
+    height: 50px; 
+}
+
 .title-container h1 {
     margin-left: 10px;
 }
@@ -28,6 +32,11 @@ header {
 
 .login-register-container .btn {
     font-size: 0.875rem;
+    margin-right: 0.5rem; 
+}
+
+.login-register-container .btn:last-child {
+    margin-right: 0; 
 }
 
 .container {
@@ -125,7 +134,7 @@ iframe {
 }
 
 .embed-responsive-16by9::before {
-    padding-top: 56.25%; /* 16:9 ratio */
+    padding-top: 56.25%; 
 }
 
 .embed-responsive-item {
@@ -137,4 +146,38 @@ iframe {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-collapse {
+    flex-grow: 1;
+    justify-content: flex-end; 
+}
+
+.navbar-nav {
+    margin-right: auto; 
+}
+
+.navbar-nav .nav-link {
+    color: #343a40;
+    font-weight: 500;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.mt-3 {
+    margin-top: 1rem !important; 
+}
+
+.ml-lg-4 {
+    margin-left: 1.5rem !important; 
 }

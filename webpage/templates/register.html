@@ -10,34 +10,35 @@
 </head>
 <body>
     <header class="bg-light border-bottom">
-        <div class="container-fluid d-flex align-items-center justify-content-between py-2">
-            <div class="d-flex align-items-center">
-                <div class="logo-container">
-                    <img src="../static/logo.png" alt="Logo Empresa" class="logo">
-                </div>
-                <div class="title-container">
-                    <h1>MotorMind</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="../static/logo.png" alt="Logo Empresa" class="logo mr-2">
+                    <h1 class="mb-0">MotorMind</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="eda">EDA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ml">ML</a></li>
+                        <li class="nav-item"><a class="nav-link" href="visualizaciones">Visualizaciones</a></li>
+                        <li class="nav-item"><a class="nav-link" href="empresascolaboradoras">Empresas Colaboradoras</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobrenosotros">Sobre Nosotros</a></li>
+                    </ul>
+                    <div class="ml-lg-3 mt-3 mt-lg-0">
+                        {% if session.logged_in %}
+                            <button onclick="location.href='/logout'" class="btn btn-dark">Cerrar Sesión</button>
+                        {% else %}
+                            <button onclick="location.href='/login'" class="btn btn-primary">Iniciar Sesión</button>
+                            <button onclick="location.href='/register'" class="btn btn-secondary ml-2">Registrarse</button>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
-            <nav class="header-menu">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="eda">EDA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ml">ML</a></li>
-                    <li class="nav-item"><a class="nav-link" href="visualizaciones">Visualizaciones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="empresascolaboradoras">Empresas Colaboradoras</a></li>
-                    <li class="nav-item"><a class="nav-link" href="sobrenosotros">Sobre Nosotros</a></li>
-                </ul>
-            </nav>
-            <div class="login-register-container">
-                {% if session.logged_in %}
-                    <button onclick="location.href='/logout'" class="btn btn-dark">Cerrar Sesión</button>
-                {% else %}
-                    <button onclick="location.href='/login'" class="btn btn-primary">Iniciar Sesión</button>
-                    <button onclick="location.href='/register'" class="btn btn-secondary ml-2">Registrarse</button>
-                {% endif %}
-            </div>
-        </div>
+        </nav>
     </header>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 50vh;">
         <div class="card shadow-sm p-4" style="width: 100%; max-width: 400px;">

@@ -1,18 +1,19 @@
 /* Variables globales */
 :root {
-    --background-color: rgb(255,255,255);
+    --background-color: #ffffff;
     --border-color: #ccc;
-    --font-color: #000;
+    --font-color: #333;
     --button-color: #000;
     --button-hover-background: #000;
     --button-hover-color: #fff;
-    --menu-background-color: rgb(230,230,230);
-    --footer-background-color: rgb(249,249,249);
-    --primary-color: #5b8bf7; 
-    --background-form: #ffffff; 
-    --text-color: #333; 
-    --border-radius: 8px; 
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    --menu-background-color: #e6e6e6;
+    --footer-background-color: #f9f9f9;
+    --primary-color: #5b8bf7;
+    --background-form: #ffffff;
+    --text-color: #333;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
 * {
     margin: 0;
@@ -21,16 +22,18 @@
 }
 
 body {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Poppins', 'Arial Narrow', Arial, sans-serif;
     background-color: var(--background-color);
+    color: var(--font-color);
     margin: 0;
 }
 
+/* Header */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 20px; 
+    padding: 10px 20px;
     background-color: var(--menu-background-color);
     border-bottom: 1px solid var(--border-color);
     position: fixed;
@@ -42,18 +45,45 @@ header {
 }
 
 .logo {
-    height: 100px;
-    width: 110px;
-    padding-right:5px;
-    margin-right: 5px;
+    height: 60px;
+    margin-right: 15px;
 }
 
 .title-container h1 {
-    font-size: 24px;
-    font-family: 'Poppins';
+    font-size: 28px;
+    color: var(--primary-color);
 }
 
-.loginregisterbutton{
+.header-menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.header-menu ul li {
+    margin-right: 20px;
+}
+
+.header-menu ul li a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-weight: 500;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.header-menu ul li a:hover {
+    color: var(--primary-color);
+    background-color: rgba(91, 139, 247, 0.1);
+    border-radius: var(--border-radius);
+}
+
+.login-register-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.loginregisterbutton {
     background-color: #3a3b39;
     border: none;
     color: white;
@@ -62,331 +92,208 @@ header {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-right:20px;
+    margin-right: 20px;
     cursor: pointer;
-    border-radius: 8px;
-    transition-duration: 0.4s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: var(--box-shadow);
 }
 
-.loginregisterbutton:hover{
+.loginregisterbutton:hover {
     background-color: rgb(172, 172, 172);
     color: #000;
 }
 
-.login-register-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-  }
+}
 
-  .dropdown-content a:hover{
-    color:#5b8bf7;
-    font-weight: bold;
-  }
-  
-  .dropdown-content a {
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  .login-register-container:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    color: var(--primary-color);
+    font-weight: bold;
     background-color: #f1f1f1;
-  }
-
-  .login-image {
-    width: 100px;
-    height: 1px;
-    margin-right: 20px; 
-}
-  
-  .header-menu {
-    background-color: var(--menu-background-color);
-    padding: 20px;
-    overflow-x: hidden;
-    position: relative;
-    z-index: 100;
 }
 
-.header-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.login-register-container:hover .dropdown-content {
+    display: block;
 }
 
-.header-menu ul li {
-    display: inline-block; 
-    position: relative;
+/* Responsive header */
+@media (max-width: 768px) {
+    .header-menu {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
 }
 
-.header-menu ul li a {
-    text-decoration: none;
-    color: black;
-    font-family: 'Poppins';
-    padding: 10px 15px; 
-    transition: font-size 0.2s ease;
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
 }
 
-.header-menu ul li a:hover {
-    background-color: lightgrey;
-    border-radius: 15px;
-    transform: 20px; 
-    font-size: 18px; 
-}   
-
-main {
-    padding: 120px;
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--font-color);
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
+/* Footer */
 footer {
+    background-color: var(--footer-background-color);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: var(--footer-background-color);
-    border-top: 1px solid var(--border-color);
-    padding: 10px 20px;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+footer p {
+    margin: 0;
+    color: var(--font-color);
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Secciones */
 section {
     background-color: #fff;
     margin: 20px 0;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 section h2 {
-    color: #20232a;
-    margin-bottom: 15px;
-}
-
-/* Página Inicio Sesión y Registro*/
-
-.login-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: var(--background-color); 
-}
-
-.login-container {
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
-    background: var(--background-form);
-    padding: 70px;
-    max-width: 400px;
-    width: 100%;
-}
-
-.subtitle-header {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.login-form h2 {
-    text-align: center;
     color: var(--text-color);
-    margin-bottom: 20px; 
-}
-
-.login-form .form-group {
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-}
-
-.login-form input[type="submit"] {
-    width: calc(100% - 30px);
-    padding: 15px;
-    margin-top: 20px;
-    border: none;
-    border-radius: var(--border-radius);
-    background-color: var(--primary-color);
-    color: var(--button-hover-color);
-    cursor: pointer;
-}
-
-.login-form input[type="submit"]:hover {
-    background-color: var(--button-hover-background);
-}
-
-.options {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-.options a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 0.9em;
-}
-
-.options a:hover {
-    text-decoration: underline;
+    margin-bottom: 20px;
 }
 
 /* Página de Empresas Colaboradoras */
-
 .empresa-colaboradora {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
     display: flex;
-    width: 600px;
-    height: 430px;
-    margin-left:20px;
-    margin-right:20px;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.empresa-colaboradora img{
-    width: 400px;
-    height: 600px;
-    flex-grow: 1;
-    object-fit: cover;
-    opacity: 0.8;
-    transition: .5s ease;
+.empresa-colaboradora img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.empresa-colaboradora img:hover{
-    cursor:pointer;
-    width: 110%;
-    opacity: 1;
-    filter: contrast(120%)
+.empresa-colaboradora img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-        }
-    
-        to {
-        margin-left: 0%;
-        width: 100%;
-        }
-    }
+/* Página EDA */
+#images-visualizacion h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    }
+.image-container {
+    position: relative;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
 
-    /* Pagina EDA */
- 
-    #images-visualizacion h2{
-        text-align: center;
-        margin-bottom: 20px;
-    }
+.image-container iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: var(--border-radius);
+}
 
-    .images {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; 
-        justify-content: center;
-    }
-    
-    .image-container {
-        flex: 1;
-        width: auto; 
-        max-width: 1000px;
-        position: relative; 
-        margin: 20px auto;
-    }
-    
-
-    .image-container iframe {
-        width: 100%; 
-        height: 400px;
-        border: none; 
-        display: block; 
-        }
-    
-    .image-container img {
-        width: 500px; 
-        height: 500px;
-        border: none; 
-        display: block; 
-    }
-    
-    .overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.5);
-        color: white;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
-    }
-
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
 
 @media screen and (max-width: 1024px) {
     .image-container {
-        width: 90%; 
+        width: 100%;
         margin: 10px auto;
     }
-    
+
     .image-container iframe {
-        height: auto; 
+        height: auto;
     }
-}   
-
-    /* Pagina de Ml */
-
-
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
 }
 
-.main-content {
+/* Página de ML */
+main .content-wrapper {
+    margin-top: 20px;
+    margin-bottom: 100px; /* Espacio inferior para evitar solapamiento con el footer */
+}
+
+main .content-wrapper h1 {
+    margin-bottom: 20px;
+}
+
+main .content-wrapper .main-content {
     display: flex;
+    flex-wrap: wrap; /* Ajuste para pantallas más pequeñas */
     justify-content: space-between;
     align-items: flex-start;
+    gap: 20px; /* Espacio entre el formulario y el precio estimado */
 }
 
 #predictionForm {
-    width: 600px;
-    margin: 50px auto; 
+    width: 100%;
+    max-width: 600px; /* Ajuste para mantener tamaño en pantallas grandes */
     padding: 20px;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     background: var(--background-form);
-    margin-top: 100px;
+    margin: 0; /* Elimina el margen superior */
 }
 
 #predictionForm div {
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
 }
 
 #predictionForm label {
     margin-bottom: 5px;
-    display: block; 
+    display: block;
     color: var(--text-color);
     font-size: 16px;
 }
@@ -402,31 +309,47 @@ section h2 {
 }
 
 .price-prediction-button {
-    width: 100%; 
+    width: 100%;
     padding: 12px;
     font-weight: bold;
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--button-hover-color);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+}
+
+.price-prediction-button:hover {
+    background-color: #0056b3;
+}
+
+.price-display-container {
+    flex: 1;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background: var(--background-form);
 }
 
 .price-display {
-    font-size: 20px; 
-    text-align: center; 
-    margin-top: 300px;
-    color: var(--text-color); 
+    font-size: 20px;
+    color: var(--text-color);
 }
 
 #result {
-    display: block; 
-    margin: 20px auto;
+    display: inline-block;
+    margin-left: 10px; /* Espacio entre "Precio estimado" y el resultado */
     padding: 10px;
-    font-size: 24px; 
-    color: var(--primary-color); 
-    font-weight: bold; 
-    border-radius: var(--border-radius); 
-    border: 2px dashed var(--border-color); 
-    max-width: 300px; 
-    text-align: center; 
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--border-color);
     background-color: rgba(0, 150, 0, 0.1);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes pop-in {
@@ -444,42 +367,40 @@ section h2 {
 }
 
 #result {
-    animation: pop-in 0.7s ease forwards; 
+    animation: pop-in 0.7s ease forwards;
 }
 
 /* mensajes flash */
-
 .flash-messages {
-    width: 90%; 
-    margin: 10px auto; 
+    width: 90%;
+    margin: 10px auto;
     padding: 10px;
     box-sizing: border-box;
-    text-align: center; 
-    border-radius: 8px; 
-    font-family: Arial, sans-serif; 
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-family: Arial, sans-serif;
 }
 
 .flash-messages .error {
-    color: #721c24; 
+    color: #721c24;
     background-color: #f8d7da;
-    border: 1px solid #f5c6cb; 
+    border: 1px solid #f5c6cb;
 }
 
 .flash-messages .success {
-    color: #155724; 
-    background-color: #d4edda; 
-    border: 1px solid #c3e6cb; 
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
 }
 
-
 .flash-messages .info {
-    color: #0c5460; 
-    background-color: #d1ecf1; 
-    border: 1px solid #bee5eb; 
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
 }
 
 .flash-messages div {
-    animation: fadeIn 0.5s, fadeOut 0.5s 5s; 
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s;
 }
 
 @keyframes fadeIn {
@@ -491,5 +412,3 @@ section h2 {
     from { opacity: 1; }
     to { opacity: 0; }
 }
-
-

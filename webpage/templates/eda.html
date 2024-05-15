@@ -5,88 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MotorMind Tech - Inicio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="../static/logo.png" alt="Logo Empresa" class="logo">
-        </div>
-        <div class="title-container">
-            <h1>MotorMind</h1>
-        </div>
-        <aside>
+    <header class="bg-light border-bottom">
+        <div class="container-fluid d-flex align-items-center justify-content-between py-2">
+            <div class="d-flex align-items-center">
+                <div class="logo-container">
+                    <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+                </div>
+                <div class="title-container">
+                    <h1>MotorMind</h1>
+                </div>
+            </div>
             <nav class="header-menu">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="eda">EDA</a></li>
-                    <li><a href="ml">ML</a></li>
-                    <li><a href="visualizaciones">Visualizaciones</a></li>
-                    <li><a href="empresascolaboradoras">Empresas Colaboradoras</a></li>
-                    <li><a href="sobrenosotros">Sobre Nosotros</a></li>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eda">EDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ml">ML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="visualizaciones">Visualizaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empresascolaboradoras">Empresas Colaboradoras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobrenosotros">Sobre Nosotros</a></li>
                 </ul>
             </nav>
-        </aside>
-        <div class="login-register-container">
-            {% if session.logged_in %}
-                <button onclick="location.href='/logout'" class="loginregisterbutton">Cerrar Sesión</button>
-            {% else %}
-                <button class="loginregisterbutton">Log In</button>
-                <div class="dropdown-content">
-                    <a href="login">Iniciar Sesión</a>
-                    <a href="register">Registrarse</a>
-                </div>
-            {% endif %}
+            <div class="login-register-container">
+                {% if session.logged_in %}
+                    <button onclick="location.href='/logout'" class="btn btn-dark">Cerrar Sesión</button>
+                {% else %}
+                    <button onclick="location.href='/login'" class="btn btn-primary">Iniciar Sesión</button>
+                    <button onclick="location.href='/register'" class="btn btn-secondary ml-2">Registrarse</button>
+                {% endif %}
+            </div>
         </div>
-    </header>    
-        <main>
-            <section id="introduction">
-                <h2>Introducción al Análisis Exploratorio de Datos (EDA)</h2>
-                <p>
-                    El Análisis Exploratorio de Datos (EDA) es una técnica crucial en la ciencia de datos que permite revelar patrones,
-                    anomalías, tendencias y relaciones en los datos, mediante el uso de métodos estadísticos y representaciones gráficas.
-                    Este enfoque inicial es fundamental para comprender a fondo el conjunto de datos con el que se trabaja, antes de
-                    proceder a modelados más complejos.
-                </p>
-            </section>      
-        <section id="images-visualizacion">
-            <h2>Visualizaciones EDA</h2>
-            <div class="images">
-                <div class="image-container">
-                    <iframe src="../static/visualizacioneseda/distribucion_gasolina.html" title="Gráfico Tarta Gasolina"></iframe>
-                    <div class="overlay">Gráfico Pastel con Distribución de la Gasolina</div>
-                </div>                
-                <div class="image-container">
-                    <iframe src="../static/visualizacioneseda/make_distribution.html" alt="Gráfico de la evolución del uso de gasolina"></iframe>
-                    <div class="overlay">Anuncios Por Marca de Coche</div>
-                </div>
-                <div class="image-container">
-                    <iframe src="../static/visualizacioneseda/km_distribution.html" alt="Gráfico sobre el número de anuncios de coches"></iframe>
-                    <div class="overlay">Descripción de l Número de Anuncios</div>
-                </div>
-                <div class="image-container">
-                    <iframe src="../static/visualizacioneseda/car_year_distribution.html" alt="Gráfico de coches por año de fabricación"></iframe>
-                    <div class="overlay">Grafico de coches por año de fabricación</div>
-                </div>
-                <div class="image-container">
-                    <iframe src="../static/visualizacioneseda/correlation_heatmap.html" alt="Mapa de Calor con Correlaciones de Variables Numericas"></iframe>
-                    <div class="overlay">Grafico de coches por año de fabricación</div>
-                </div>
-                </div>  
-            </div>          
+    </header> 
+    <main class="container mt-5 pt-5">
+        <section id="introduction" class="mb-5">
+            <h2>Introducción al Análisis Exploratorio de Datos (EDA)</h2>
+            <p>
+                El Análisis Exploratorio de Datos (EDA) es una técnica crucial en la ciencia de datos que permite revelar patrones,
+                anomalías, tendencias y relaciones en los datos, mediante el uso de métodos estadísticos y representaciones gráficas.
+                Este enfoque inicial es fundamental para comprender a fondo el conjunto de datos con el que se trabaja, antes de
+                proceder a modelados más complejos.
+            </p>
         </section>
-            <section id="conclusion">
-                <h2>Conclusión</h2>
-                <p>
-                    El EDA es un paso indispensable en cualquier proyecto de análisis de datos. Nos permite acercarnos a los datos de manera
-                    informada y prepara el terreno para análisis más profundos, asegurando que las decisiones tomadas estén bien fundadas
-                    en una comprensión sólida de los datos subyacentes.
-                </p>
-            </section>
-        </main>
-        
-    <footer>
-        <p>Stefan Raos Bermúdez / Pablo Gonzalez Castro / Pablo Bailador Pollo ///// +34 631 342 682  /////  <a href="https://universidadeuropea.com/">Universidad Europea</a></p>
+        <section id="images-visualizacion" class="mb-5">
+            <h2 class="text-center">Visualizaciones EDA</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="image-container position-relative">
+                        <iframe src="../static/visualizacioneseda/distribucion_gasolina.html" class="w-100" title="Gráfico Tarta Gasolina"></iframe>
+                        <div class="overlay">Gráfico Pastel con Distribución de la Gasolina</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="image-container position-relative">
+                        <iframe src="../static/visualizacioneseda/make_distribution.html" class="w-100" alt="Gráfico de la evolución del uso de gasolina"></iframe>
+                        <div class="overlay">Anuncios Por Marca de Coche</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="image-container position-relative">
+                        <iframe src="../static/visualizacioneseda/km_distribution.html" class="w-100" alt="Gráfico sobre el número de anuncios de coches"></iframe>
+                        <div class="overlay">Descripción del Número de Anuncios</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="image-container position-relative">
+                        <iframe src="../static/visualizacioneseda/car_year_distribution.html" class="w-100" alt="Gráfico de coches por año de fabricación"></iframe>
+                        <div class="overlay">Gráfico de coches por año de fabricación</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="image-container position-relative">
+                        <iframe src="../static/visualizacioneseda/correlation_heatmap.html" class="w-100" alt="Mapa de Calor con Correlaciones de Variables Numéricas"></iframe>
+                        <div class="overlay">Mapa de Calor con Correlaciones de Variables Numéricas</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="conclusion">
+            <h2>Conclusión</h2>
+            <p>
+                El EDA es un paso indispensable en cualquier proyecto de análisis de datos. Nos permite acercarnos a los datos de manera
+                informada y prepara el terreno para análisis más profundos, asegurando que las decisiones tomadas estén bien fundadas
+                en una comprensión sólida de los datos subyacentes.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-light border-top py-3 text-center">
+        <p>Stefan Raos Bermúdez / Pablo Gonzalez Castro / Pablo Bailador Pollo ///// +34 631 342 682 ///// <a href="https://universidadeuropea.com/">Universidad Europea</a></p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleMenu() {
+            const headerMenu = document.querySelector('.header-menu');
+            headerMenu.style.display = headerMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>

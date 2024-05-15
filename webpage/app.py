@@ -64,7 +64,7 @@ def logout():
     session.pop('logged_in', None) 
     session.pop('username', None) 
     flash("Has cerrado sesión correctamente.")
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 
 @app.route('/register', methods=['GET', 'POST'])

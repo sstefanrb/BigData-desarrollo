@@ -5,8 +5,9 @@ body {
 }
 
 header {
-    background-color: #ffffff;
+    background-color: #ffffff9a;
     border-bottom: 1px solid #dee2e6;
+    margin-bottom: 0;
 }
 
 .logo-container img {
@@ -14,11 +15,13 @@ header {
 }
 
 .logo {
-    height: 50px; 
+    height: 50px;
 }
 
 .title-container h1 {
     margin-left: 10px;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .header-menu .nav-link {
@@ -32,36 +35,67 @@ header {
 
 .login-register-container .btn {
     font-size: 0.875rem;
-    margin-right: 0.5rem; 
+    margin-right: 1rem;
 }
 
 .login-register-container .btn:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
-.container {
-    margin-top: 5rem;
-    padding-top: 2rem;
+.container.mt-5.pt-5 {
+    margin-top: 2rem !important;
+    padding-top: 0 !important;
 }
 
-footer {
-    background-color: #ffffff;
-    border-top: 1px solid #dee2e6;
-    padding: 1rem 0;
-    color: #6c757d;
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    display: inline-block;
 }
 
-.footer a {
-    color: #007bff;
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
-.card {
+.card-deck .card {
     border-radius: 0.75rem;
+    margin-bottom: 2.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-deck .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-title {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.card-body {
+    text-align: center;
+}
+
+footer {
+    background-color: #f1f1f1;
+    border-top: 1px solid #dee2e6;
+    padding: 1.5rem 0;
+    color: #6c757d;
+    text-align: center;
+}
+
+.footer a {
+    color: #007bff;
 }
 
 .form-control {
@@ -116,7 +150,7 @@ footer {
 }
 
 iframe {
-    min-height: 400px; 
+    min-height: 400px;
     border: none;
 }
 
@@ -134,7 +168,7 @@ iframe {
 }
 
 .embed-responsive-16by9::before {
-    padding-top: 56.25%; 
+    padding-top: 56.25%;
 }
 
 .embed-responsive-item {
@@ -149,7 +183,7 @@ iframe {
 }
 
 .navbar-toggler {
-    border-color: rgba(0, 0, 0, 0.1); 
+    border-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar-toggler-icon {
@@ -158,11 +192,11 @@ iframe {
 
 .navbar-collapse {
     flex-grow: 1;
-    justify-content: flex-end; 
+    justify-content: flex-end;
 }
 
 .navbar-nav {
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 .navbar-nav .nav-link {
@@ -175,11 +209,24 @@ iframe {
 }
 
 .mt-3 {
-    margin-top: 1rem !important; 
+    margin-top: 1rem !important;
 }
 
 .ml-lg-4 {
-    margin-left: 1.5rem !important; 
+    margin-left: 1.5rem !important;
 }
 
+.colaboradora-img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
+.colaboradora-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}

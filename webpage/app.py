@@ -27,6 +27,10 @@ def exploratory_data_analysis():
         return redirect(url_for('login'))
     return render_template('eda.html')
 
+@app.route('/visualizaciones')
+def visualizaciones():
+    return render_template('visualizaciones.html')
+
 @app.route('/empresascolaboradoras')
 def empresascolaboradoras():
     return render_template('empresascolaboradoras.html')

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotorMind Tech - Visualizaciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <header class="bg-light border-bottom">
+        <div class="container-fluid d-flex align-items-center justify-content-between py-2">
+            <div class="d-flex align-items-center">
+                <div class="logo-container">
+                    <img src="../static/logo.png" alt="Logo Empresa" class="logo">
+                </div>
+                <div class="title-container">
+                    <h1>MotorMind</h1>
+                </div>
+            </div>
+            <nav class="header-menu">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="eda">EDA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ml">ML</a></li>
+                    <li class="nav-item"><a class="nav-link" href="visualizaciones">Visualizaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="empresascolaboradoras">Empresas Colaboradoras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sobrenosotros">Sobre Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="login-register-container">
+                {% if session.logged_in %}
+                    <button onclick="location.href='/logout'" class="btn btn-dark">Cerrar Sesión</button>
+                {% else %}
+                    <button onclick="location.href='/login'" class="btn btn-primary">Iniciar Sesión</button>
+                    <button onclick="location.href='/register'" class="btn btn-secondary ml-2">Registrarse</button>
+                {% endif %}
+            </div>
+        </div>
+    </header>  
+    <main class="container mt-5 pt-5">
+        <section id="dashboard" class="mb-5">
+            <h2 class="text-center">Dashboard de Power BI</h2>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=YOUR_EMBED_URL_HERE" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-light border-top py-3 text-center">
+        <p>Stefan Raos Bermúdez / Pablo Gonzalez Castro / Pablo Bailador Pollo ///// +34 631 342 682 ///// <a href="https://universidadeuropea.com/">Universidad Europea</a></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

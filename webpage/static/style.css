@@ -143,6 +143,7 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 0.75rem;
+    text-align: center;
 }
 
 .image-container:hover .overlay {
